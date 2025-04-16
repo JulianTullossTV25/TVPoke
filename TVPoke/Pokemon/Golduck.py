@@ -10,3 +10,5 @@ class Golduck(Water):
             Move("Splash", "WATER", 0)
         ]
         super().__init__("Golduck", 80, moves, "./TVPoke/Pokemon/imgs/Golduck.png")
+        
+        

@@ -53,7 +53,7 @@ class SelectScreen(Screen):
             yCoord += 100/4
             self.elements.append(SelectedPokeImage((75, yCoord), p, 20, 100/4))
         if len(self.state["selectedPoke"][self.state["trainerIndex"]]) == 3:
-            self.waitForNextFrame = 2
+            self.waitForNextFrame = 1
             self.elements.append(Label((75, 90), 50, 20, "Choosing Complete!", 30))
             if self.state["trainerIndex"] == 1:
                 self.state["goTo"] = "BATTLE"
@@ -95,7 +95,7 @@ class SelectedPokeImage(Image):
 
 class BackButton(Image):
     def __init__(self):
-        super().__init__((45, 85), 10, 10, './imgs/BackButton.png')
+        super().__init__((20, 85), 10, 10, './imgs/bkBttn.png')
 
     def onClick(self, screen):
         screen.state["pageNum"] -= 1
@@ -103,7 +103,7 @@ class BackButton(Image):
 
 class ForwardButton(Image):
     def __init__(self):
-        super().__init__((45, 85), 10, 10, './imgs/ForwardButton.png')
+        super().__init__((30, 85), 10, 10, './imgs/fwdBttn.png')
 
     def onClick(self, screen):
         screen.state["pageNum"] += 1
