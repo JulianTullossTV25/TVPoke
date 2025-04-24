@@ -29,11 +29,6 @@ while True: ##Game loop
         winScreen.winner = winner
         battleScreen.state["goTo"] = ""
         screen = winScreen
-
-
-
-
-
     ##----------------------------------------------------
 
     window.checkForInput(screen) #checks for inputs on the screen
