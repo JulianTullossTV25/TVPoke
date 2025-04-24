@@ -2,6 +2,7 @@ from PyUI.Window import Window
 ##import the custom screens you made---
 from SelectScreen import SelectScreen
 from BattleScreen import BattleScreen
+from WinScreen import WinScreen
 ##-------------------------------------
 
 
@@ -10,6 +11,7 @@ window = Window("Example App", (0,255,0)) ##Create the window to work with
 ##Create Screen Objects for use------
 selectScreen = SelectScreen(window)
 battleScreen = BattleScreen(window)
+winScreen = WinScreen(window)
 ##-----------------------------------
 
 screen = selectScreen ##set screen to be the starting screen
@@ -20,7 +22,14 @@ while True: ##Game loop
         pokemonList1 = selectScreen.state["selectedPoke"][0]
         pokemonList2 = selectScreen.state["selectedPoke"][1]
         battleScreen.addTrainers(pokemonList1, pokemonList2)
+        selectScreen.state["goTo"] = ""
         screen = battleScreen
+    if battleScreen.state["goTo"] == "WIN":
+        loser = battleScreen.loser
+        winScreen.loser = loser
+        battleScreen.state["goTo"] = ""
+        screen = winScreen
+
 
 
 

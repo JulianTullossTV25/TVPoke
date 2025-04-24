@@ -16,7 +16,7 @@ class Pokemon:
         "speed" : None
         }
 
-    def takeDamage(self, move, attacker):
+    def takeDamage(self, move):
         multi = 1
         if move.type == self.critType:
             multi = 2
