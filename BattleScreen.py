@@ -10,12 +10,14 @@ class BattleScreen(Screen):
         }
         self.trainers = []
         self.loser = ""
+        self.winner = ""
         
     def addTrainers(self, trainer1Poke, trainer2Poke):
         self.trainers = [
             Trainer(trainer1Poke),
             Trainer(trainer2Poke)
         ]
+
         self.activeTrainer = self.trainers[0]
         self.trainers[0].name = "player 1"
         self.trainers[1].name = "player 2"
@@ -29,8 +31,11 @@ class BattleScreen(Screen):
     def checkLoser(self):
         for trainer in self.trainers:
             if len(trainer.pokemon) == 0:
-                self.state["goTo"] = "WIN"
                 self.loser = trainer.name
+                for guy in self.trainers:
+                    if guy != trainer:
+                        self.winner = guy.name
+                        self.state["goTo"] = "WIN"
                 break
 
     def elementsToDisplay(self):

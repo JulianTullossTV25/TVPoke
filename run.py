@@ -25,8 +25,8 @@ while True: ##Game loop
         selectScreen.state["goTo"] = ""
         screen = battleScreen
     if battleScreen.state["goTo"] == "WIN":
-        loser = battleScreen.loser
-        winScreen.loser = loser
+        winner = battleScreen.winner
+        winScreen.winner = winner
         battleScreen.state["goTo"] = ""
         screen = winScreen
 
